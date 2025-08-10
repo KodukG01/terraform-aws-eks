@@ -1,0 +1,713 @@
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-05550220bc836a902][0m
+[0m[1mmodule.vpc.aws_route.database: Refreshing state... [id=r-rtb-0e23ccf055694fc181080289494][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-0c24c85eaabcbeae0][0m
+[0m[1mmodule.vpc.aws_route_table.private: Refreshing state... [id=rtb-0f54af6b6937548a3][0m
+[0m[1mmodule.vpc.aws_route.private: Refreshing state... [id=r-rtb-0f54af6b6937548a31080289494][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[0]: Refreshing state... [id=rtbassoc-0b8a608ec5dba407d][0m
+[0m[1maws_ssm_parameter.vpc_id: Refreshing state... [id=/roboshop/dev/vpc_id][0m
+[0m[1mmodule.vpc.aws_vpc.main: Refreshing state... [id=vpc-0c3fca8f86ee9787c][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-082d45ddeaa70b069][0m
+[0m[1mmodule.vpc.aws_subnet.private[0]: Refreshing state... [id=subnet-02e0b053f518b63f1][0m
+[0m[1mmodule.vpc.aws_route.public_peering[0]: Refreshing state... [id=r-rtb-02391852023faa973179966490][0m
+[0m[1mmodule.vpc.aws_subnet.database[0]: Refreshing state... [id=subnet-093ddd0663a9e5eba][0m
+[0m[1mmodule.vpc.aws_route.private_peering[0]: Refreshing state... [id=r-rtb-0f54af6b6937548a3179966490][0m
+[0m[1mmodule.vpc.aws_route.default_peering[0]: Refreshing state... [id=r-rtb-0ece8bf6a17c1d7a32472047643][0m
+[0m[1mmodule.vpc.aws_vpc_peering_connection.default[0]: Refreshing state... [id=pcx-08c23316a1e0b771c][0m
+[0m[1mmodule.vpc.aws_route_table.public: Refreshing state... [id=rtb-02391852023faa973][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-0e87a30882f39c91d][0m
+[0m[1mmodule.vpc.aws_subnet.private[1]: Refreshing state... [id=subnet-09c2758791893b5b7][0m
+[0m[1mmodule.vpc.aws_route.public: Refreshing state... [id=r-rtb-02391852023faa9731080289494][0m
+[0m[1mmodule.vpc.aws_internet_gateway.main: Refreshing state... [id=igw-099a4f11f21294921][0m
+[0m[1mmodule.vpc.aws_route_table.database: Refreshing state... [id=rtb-0e23ccf055694fc18][0m
+[0m[1mmodule.vpc.aws_route.database_peering[0]: Refreshing state... [id=r-rtb-0e23ccf055694fc18179966490][0m
+[0m[1mmodule.vpc.aws_route_table_association.database[0]: Refreshing state... [id=rtbassoc-0b75114162e7bea48][0m
+[0m[1mmodule.vpc.aws_eip.nat: Refreshing state... [id=eipalloc-0d945165ad074e15b][0m
+[0m[1mmodule.vpc.aws_route_table_association.private[1]: Refreshing state... [id=rtbassoc-083fb24f262c9d24d][0m
+[0m[1mmodule.vpc.aws_nat_gateway.main: Refreshing state... [id=nat-0fae3521dc3394536][0m
+[0m[1mmodule.vpc.aws_subnet.database[1]: Refreshing state... [id=subnet-0c6511de483cbe22b][0m
+[0m[1mmodule.vpc.aws_route_table_association.database[1]: Refreshing state... [id=rtbassoc-06e59dcf3d26ed2c1][0m
+[0m[1mdata.aws_ssm_parameter.vpc_id: Reading...[0m[0m
+[0m[1mdata.aws_ssm_parameter.vpc_id: Read complete after 0s [id=/roboshop/dev/vpc_id][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_ssm_parameter.frontend_sg_id[0m will be created
+[0m  [32m+[0m[0m resource "aws_ssm_parameter" "frontend_sg_id" {
+      [32m+[0m[0m arn            = (known after apply)
+      [32m+[0m[0m data_type      = (known after apply)
+      [32m+[0m[0m has_value_wo   = (known after apply)
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m insecure_value = (known after apply)
+      [32m+[0m[0m key_id         = (known after apply)
+      [32m+[0m[0m name           = "/roboshop/dev/frontend_sg_id"
+      [32m+[0m[0m tags_all       = (known after apply)
+      [32m+[0m[0m tier           = (known after apply)
+      [32m+[0m[0m type           = "String"
+      [32m+[0m[0m value          = (sensitive value)
+      [32m+[0m[0m value_wo       = (write-only attribute)
+      [32m+[0m[0m version        = (known after apply)
+    }
+
+[1m  # aws_ssm_parameter.vpc_id[0m will be [1m[31mdestroyed[0m
+  # (because aws_ssm_parameter.vpc_id is not in configuration)
+[0m  [31m-[0m[0m resource "aws_ssm_parameter" "vpc_id" {
+      [31m-[0m[0m arn             = "arn:aws:ssm:us-east-1:108717859359:parameter/roboshop/dev/vpc_id" [90m-> null[0m[0m
+      [31m-[0m[0m data_type       = "text" [90m-> null[0m[0m
+      [31m-[0m[0m id              = "/roboshop/dev/vpc_id" [90m-> null[0m[0m
+      [31m-[0m[0m name            = "/roboshop/dev/vpc_id" [90m-> null[0m[0m
+      [31m-[0m[0m tags            = {} [90m-> null[0m[0m
+      [31m-[0m[0m tags_all        = {} [90m-> null[0m[0m
+      [31m-[0m[0m tier            = "Standard" [90m-> null[0m[0m
+      [31m-[0m[0m type            = "String" [90m-> null[0m[0m
+      [31m-[0m[0m value           = (sensitive value) [90m-> null[0m[0m
+      [31m-[0m[0m value_wo        = (write-only attribute) [90m-> null[0m[0m
+      [31m-[0m[0m version         = 1 [90m-> null[0m[0m
+        [90m# (3 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.frontend.aws_security_group.main[0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "main" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "created sg for frontend instance"
+      [32m+[0m[0m egress                 = [
+          [32m+[0m[0m {
+              [32m+[0m[0m cidr_blocks      = [
+                  [32m+[0m[0m "0.0.0.0/0",
+                ]
+              [32m+[0m[0m from_port        = 0
+              [32m+[0m[0m ipv6_cidr_blocks = [
+                  [32m+[0m[0m "::/0",
+                ]
+              [32m+[0m[0m prefix_list_ids  = []
+              [32m+[0m[0m protocol         = "-1"
+              [32m+[0m[0m security_groups  = []
+              [32m+[0m[0m self             = false
+              [32m+[0m[0m to_port          = 0
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+        ]
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = "frontend"
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "roboshop-dev-frontend"
+          [32m+[0m[0m "Project"     = "roboshop"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment" = "dev"
+          [32m+[0m[0m "Name"        = "roboshop-dev-frontend"
+          [32m+[0m[0m "Project"     = "roboshop"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m vpc_id                 = (sensitive value)
+    }
+
+[1m  # module.vpc.aws_eip.nat[0m will be [1m[31mdestroyed[0m
+  # (because aws_eip.nat is not in configuration)
+[0m  [31m-[0m[0m resource "aws_eip" "nat" {
+      [31m-[0m[0m allocation_id            = "eipalloc-0d945165ad074e15b" [90m-> null[0m[0m
+      [31m-[0m[0m arn                      = "arn:aws:ec2:us-east-1:108717859359:elastic-ip/eipalloc-0d945165ad074e15b" [90m-> null[0m[0m
+      [31m-[0m[0m association_id           = "eipassoc-0ca86c1a95e83f084" [90m-> null[0m[0m
+      [31m-[0m[0m domain                   = "vpc" [90m-> null[0m[0m
+      [31m-[0m[0m id                       = "eipalloc-0d945165ad074e15b" [90m-> null[0m[0m
+      [31m-[0m[0m network_border_group     = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface        = "eni-07c8905c01bd45bab" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns              = "ip-20-0-1-151.ec2.internal" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip               = "20.0.1.151" [90m-> null[0m[0m
+      [31m-[0m[0m public_dns               = "ec2-44-194-34-95.compute-1.amazonaws.com" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                = "44.194.34.95" [90m-> null[0m[0m
+      [31m-[0m[0m public_ipv4_pool         = "amazon" [90m-> null[0m[0m
+      [31m-[0m[0m tags                     = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                 = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc                      = true [90m-> null[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_internet_gateway.main[0m will be [1m[31mdestroyed[0m
+  # (because aws_internet_gateway.main is not in configuration)
+[0m  [31m-[0m[0m resource "aws_internet_gateway" "main" {
+      [31m-[0m[0m arn      = "arn:aws:ec2:us-east-1:108717859359:internet-gateway/igw-099a4f11f21294921" [90m-> null[0m[0m
+      [31m-[0m[0m id       = "igw-099a4f11f21294921" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m tags     = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id   = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_nat_gateway.main[0m will be [1m[31mdestroyed[0m
+  # (because aws_nat_gateway.main is not in configuration)
+[0m  [31m-[0m[0m resource "aws_nat_gateway" "main" {
+      [31m-[0m[0m allocation_id                      = "eipalloc-0d945165ad074e15b" [90m-> null[0m[0m
+      [31m-[0m[0m association_id                     = "eipassoc-0ca86c1a95e83f084" [90m-> null[0m[0m
+      [31m-[0m[0m connectivity_type                  = "public" [90m-> null[0m[0m
+      [31m-[0m[0m id                                 = "nat-0fae3521dc3394536" [90m-> null[0m[0m
+      [31m-[0m[0m network_interface_id               = "eni-07c8905c01bd45bab" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip                         = "20.0.1.151" [90m-> null[0m[0m
+      [31m-[0m[0m public_ip                          = "44.194.34.95" [90m-> null[0m[0m
+      [31m-[0m[0m secondary_allocation_ids           = [] [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_address_count = 0 [90m-> null[0m[0m
+      [31m-[0m[0m secondary_private_ip_addresses     = [] [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id                          = "subnet-082d45ddeaa70b069" [90m-> null[0m[0m
+      [31m-[0m[0m tags                               = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                           = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route.database[0m will be [1m[31mdestroyed[0m
+  # (because aws_route.database is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route" "database" {
+      [31m-[0m[0m destination_cidr_block      = "0.0.0.0/0" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-0e23ccf055694fc181080289494" [90m-> null[0m[0m
+      [31m-[0m[0m nat_gateway_id              = "nat-0fae3521dc3394536" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-0e23ccf055694fc18" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route.database_peering[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_route.database_peering is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route" "database_peering" {
+      [31m-[0m[0m destination_cidr_block      = "10.0.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-0e23ccf055694fc18179966490" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-0e23ccf055694fc18" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+      [31m-[0m[0m vpc_peering_connection_id   = "pcx-08c23316a1e0b771c" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route.default_peering[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_route.default_peering is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route" "default_peering" {
+      [31m-[0m[0m destination_cidr_block      = "20.0.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-0ece8bf6a17c1d7a32472047643" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-0ece8bf6a17c1d7a3" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+      [31m-[0m[0m vpc_peering_connection_id   = "pcx-08c23316a1e0b771c" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route.private[0m will be [1m[31mdestroyed[0m
+  # (because aws_route.private is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route" "private" {
+      [31m-[0m[0m destination_cidr_block      = "0.0.0.0/0" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-0f54af6b6937548a31080289494" [90m-> null[0m[0m
+      [31m-[0m[0m nat_gateway_id              = "nat-0fae3521dc3394536" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-0f54af6b6937548a3" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route.private_peering[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_route.private_peering is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route" "private_peering" {
+      [31m-[0m[0m destination_cidr_block      = "10.0.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-0f54af6b6937548a3179966490" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-0f54af6b6937548a3" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+      [31m-[0m[0m vpc_peering_connection_id   = "pcx-08c23316a1e0b771c" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route.public[0m will be [1m[31mdestroyed[0m
+  # (because aws_route.public is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route" "public" {
+      [31m-[0m[0m destination_cidr_block      = "0.0.0.0/0" [90m-> null[0m[0m
+      [31m-[0m[0m gateway_id                  = "igw-099a4f11f21294921" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-02391852023faa9731080289494" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-02391852023faa973" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route.public_peering[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_route.public_peering is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route" "public_peering" {
+      [31m-[0m[0m destination_cidr_block      = "10.0.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "r-rtb-02391852023faa973179966490" [90m-> null[0m[0m
+      [31m-[0m[0m origin                      = "CreateRoute" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id              = "rtb-02391852023faa973" [90m-> null[0m[0m
+      [31m-[0m[0m state                       = "active" [90m-> null[0m[0m
+      [31m-[0m[0m vpc_peering_connection_id   = "pcx-08c23316a1e0b771c" [90m-> null[0m[0m
+        [90m# (13 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.database[0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table.database is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table" "database" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:108717859359:route-table/rtb-0e23ccf055694fc18" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-0e23ccf055694fc18" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "0.0.0.0/0"
+              [31m-[0m[0m nat_gateway_id             = "nat-0fae3521dc3394536"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "10.0.0.0/16"
+              [31m-[0m[0m vpc_peering_connection_id  = "pcx-08c23316a1e0b771c"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-database"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-database"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.private[0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table.private is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table" "private" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:108717859359:route-table/rtb-0f54af6b6937548a3" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-0f54af6b6937548a3" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "0.0.0.0/0"
+              [31m-[0m[0m nat_gateway_id             = "nat-0fae3521dc3394536"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "10.0.0.0/16"
+              [31m-[0m[0m vpc_peering_connection_id  = "pcx-08c23316a1e0b771c"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-private"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-private"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table.public[0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table.public is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table" "public" {
+      [31m-[0m[0m arn              = "arn:aws:ec2:us-east-1:108717859359:route-table/rtb-02391852023faa973" [90m-> null[0m[0m
+      [31m-[0m[0m id               = "rtb-02391852023faa973" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id         = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m propagating_vgws = [] [90m-> null[0m[0m
+      [31m-[0m[0m route            = [
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "0.0.0.0/0"
+              [31m-[0m[0m gateway_id                 = "igw-099a4f11f21294921"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m cidr_block                 = "10.0.0.0/16"
+              [31m-[0m[0m vpc_peering_connection_id  = "pcx-08c23316a1e0b771c"
+                [90m# (11 unchanged attributes hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m tags             = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-public"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all         = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-public"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id           = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.database[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table_association.database is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table_association" "database" {
+      [31m-[0m[0m id             = "rtbassoc-0b75114162e7bea48" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-0e23ccf055694fc18" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-093ddd0663a9e5eba" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.database[1][0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table_association.database is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table_association" "database" {
+      [31m-[0m[0m id             = "rtbassoc-06e59dcf3d26ed2c1" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-0e23ccf055694fc18" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-0c6511de483cbe22b" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table_association.private is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table_association" "private" {
+      [31m-[0m[0m id             = "rtbassoc-0b8a608ec5dba407d" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-0f54af6b6937548a3" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-02e0b053f518b63f1" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.private[1][0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table_association.private is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table_association" "private" {
+      [31m-[0m[0m id             = "rtbassoc-083fb24f262c9d24d" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-0f54af6b6937548a3" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-09c2758791893b5b7" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table_association.public is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table_association" "public" {
+      [31m-[0m[0m id             = "rtbassoc-0c24c85eaabcbeae0" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-02391852023faa973" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-082d45ddeaa70b069" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[1][0m will be [1m[31mdestroyed[0m
+  # (because aws_route_table_association.public is not in configuration)
+[0m  [31m-[0m[0m resource "aws_route_table_association" "public" {
+      [31m-[0m[0m id             = "rtbassoc-05550220bc836a902" [90m-> null[0m[0m
+      [31m-[0m[0m route_table_id = "rtb-02391852023faa973" [90m-> null[0m[0m
+      [31m-[0m[0m subnet_id      = "subnet-0e87a30882f39c91d" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.database[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_subnet.database is not in configuration)
+[0m  [31m-[0m[0m resource "aws_subnet" "database" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:108717859359:subnet/subnet-093ddd0663a9e5eba" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az6" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "20.0.21.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-093ddd0663a9e5eba" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-database-us-east-1a"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-database-us-east-1a"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.database[1][0m will be [1m[31mdestroyed[0m
+  # (because aws_subnet.database is not in configuration)
+[0m  [31m-[0m[0m resource "aws_subnet" "database" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:108717859359:subnet/subnet-0c6511de483cbe22b" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "20.0.22.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-0c6511de483cbe22b" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-database-us-east-1b"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-database-us-east-1b"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.private[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_subnet.private is not in configuration)
+[0m  [31m-[0m[0m resource "aws_subnet" "private" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:108717859359:subnet/subnet-02e0b053f518b63f1" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az6" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "20.0.11.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-02e0b053f518b63f1" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-private-us-east-1a"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-private-us-east-1a"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.private[1][0m will be [1m[31mdestroyed[0m
+  # (because aws_subnet.private is not in configuration)
+[0m  [31m-[0m[0m resource "aws_subnet" "private" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:108717859359:subnet/subnet-09c2758791893b5b7" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "20.0.12.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-09c2758791893b5b7" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = false [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-private-us-east-1b"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-private-us-east-1b"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.public[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_subnet.public is not in configuration)
+[0m  [31m-[0m[0m resource "aws_subnet" "public" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:108717859359:subnet/subnet-082d45ddeaa70b069" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1a" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az6" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "20.0.1.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-082d45ddeaa70b069" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-public-us-east-1a"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-public-us-east-1a"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_subnet.public[1][0m will be [1m[31mdestroyed[0m
+  # (because aws_subnet.public is not in configuration)
+[0m  [31m-[0m[0m resource "aws_subnet" "public" {
+      [31m-[0m[0m arn                                            = "arn:aws:ec2:us-east-1:108717859359:subnet/subnet-0e87a30882f39c91d" [90m-> null[0m[0m
+      [31m-[0m[0m assign_ipv6_address_on_creation                = false [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone                              = "us-east-1b" [90m-> null[0m[0m
+      [31m-[0m[0m availability_zone_id                           = "use1-az1" [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                                     = "20.0.2.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns64                                   = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_lni_at_device_index                     = 0 [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_a_record_on_launch    = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                             = "subnet-0e87a30882f39c91d" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_native                                    = false [90m-> null[0m[0m
+      [31m-[0m[0m map_customer_owned_ip_on_launch                = false [90m-> null[0m[0m
+      [31m-[0m[0m map_public_ip_on_launch                        = true [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                                       = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m private_dns_hostname_type_on_launch            = "ip-name" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                           = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-public-us-east-1b"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                                       = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-public-us-east-1b"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id                                         = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_vpc.main[0m will be [1m[31mdestroyed[0m
+  # (because aws_vpc.main is not in configuration)
+[0m  [31m-[0m[0m resource "aws_vpc" "main" {
+      [31m-[0m[0m arn                                  = "arn:aws:ec2:us-east-1:108717859359:vpc/vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+      [31m-[0m[0m assign_generated_ipv6_cidr_block     = false [90m-> null[0m[0m
+      [31m-[0m[0m cidr_block                           = "20.0.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m default_network_acl_id               = "acl-0a90ca52e3995390a" [90m-> null[0m[0m
+      [31m-[0m[0m default_route_table_id               = "rtb-02947bfd10b375d91" [90m-> null[0m[0m
+      [31m-[0m[0m default_security_group_id            = "sg-012dd8cd3d5fed929" [90m-> null[0m[0m
+      [31m-[0m[0m dhcp_options_id                      = "dopt-05d8de90cd939bcb4" [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_hostnames                 = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_dns_support                   = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_network_address_usage_metrics = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                   = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+      [31m-[0m[0m instance_tenancy                     = "default" [90m-> null[0m[0m
+      [31m-[0m[0m ipv6_netmask_length                  = 0 [90m-> null[0m[0m
+      [31m-[0m[0m main_route_table_id                  = "rtb-02947bfd10b375d91" [90m-> null[0m[0m
+      [31m-[0m[0m owner_id                             = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m tags                                 = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all                             = {
+          [31m-[0m[0m "Name"        = "roboshop-dev"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+        [90m# (4 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # module.vpc.aws_vpc_peering_connection.default[0][0m will be [1m[31mdestroyed[0m
+  # (because aws_vpc_peering_connection.default is not in configuration)
+[0m  [31m-[0m[0m resource "aws_vpc_peering_connection" "default" {
+      [31m-[0m[0m accept_status = "active" [90m-> null[0m[0m
+      [31m-[0m[0m auto_accept   = true [90m-> null[0m[0m
+      [31m-[0m[0m id            = "pcx-08c23316a1e0b771c" [90m-> null[0m[0m
+      [31m-[0m[0m peer_owner_id = "108717859359" [90m-> null[0m[0m
+      [31m-[0m[0m peer_region   = "us-east-1" [90m-> null[0m[0m
+      [31m-[0m[0m peer_vpc_id   = "vpc-0abc2b32312e6b6da" [90m-> null[0m[0m
+      [31m-[0m[0m tags          = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-default"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m tags_all      = {
+          [31m-[0m[0m "Name"        = "roboshop-dev-default"
+          [31m-[0m[0m "Terraform"   = "true"
+          [31m-[0m[0m "environment" = "dev"
+          [31m-[0m[0m "project"     = "roboshop"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m vpc_id        = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+
+      [31m-[0m[0m accepter {
+          [31m-[0m[0m allow_remote_vpc_dns_resolution = true [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m requester {
+          [31m-[0m[0m allow_remote_vpc_dns_resolution = true [90m-> null[0m[0m
+        }
+    }
+
+[1mPlan:[0m 2 to add, 0 to change, 28 to destroy.
+[0m
+Changes to Outputs:
+  [31m-[0m[0m vpc_id = "vpc-0c3fca8f86ee9787c" [90m-> null[0m[0m
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
+Releasing state lock. This may take a few moments...
