@@ -29,7 +29,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
                         sh """
-                        cd 03-bastion
+                        cd 08-acm
                         terraform init -reconfigure
                         """
                     }
@@ -41,7 +41,7 @@ pipeline {
                 script {
                     withAWS(credentials : 'jenkins-ecr-user', region: 'us-east-1') {
                         sh """
-                        cd 03-bastion
+                        cd 08-acm
                         terraform plan
                         """
                     }
@@ -55,7 +55,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
                         sh """
-                        cd 03-bastion
+                        cd 08-acm
                         terraform apply -auto-approve
                         """
                     }
