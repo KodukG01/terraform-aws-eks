@@ -63,46 +63,7 @@ pipeline {
             }
         }
       
-        stage('Bastion EKS ACM ALB'){
-          parallel {
-            stage('Trigger Bastion') {
-                steps {
-                    script {
-                        build job: '03-bastion', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-            stage('Trigger EKS') {
-                steps {
-                    script {
-                        build job: '10-eks', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-            stage('Trigger ACM') {
-                steps {
-                    script {
-                        build job: '08-acm', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-            stage('Trigger ALB') {
-                steps {
-                    script {
-                        build job: '09-frontend-alb', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-          }
-        }
+        
         
     }
 
