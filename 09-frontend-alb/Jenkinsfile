@@ -28,7 +28,7 @@ pipeline {
                 script {
                     withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
                         sh """
-                            cd 70-frontend-alb
+                            cd 09-frontend-alb
                             terraform init -reconfigure
                         """
                     }
