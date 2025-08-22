@@ -1,9 +1,9 @@
 pipeline {
-    agent {
+    agent  {
         label 'AGENT-1'
     }
     environment { 
-        appVersion = ''
+       appVersion = ''
         REGION = 'us-east-1'
         ACC_ID = '108717859359'
         PROJECT = 'roboshop'
@@ -14,65 +14,65 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
-
+    /* parameters {
+        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
+        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password') 
+    } */
+    // Build
     stages {
-        stage('Init') {
+        stage('init') {
             steps {
                 script {
-                    withAWS(credentials: 'jenkins-ecr-user', region: "${REGION}") {
+                    withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
                         sh """
-                        set -e
-                        cd 09-frontend-alb
-                        rm -rf .terraform .terraform.lock.hcl
-                        terraform init -reconfigure -upgrade
-                        terraform validate
+                            cd 70-frontend-alb
+                            terraform init -reconfigure
                         """
                     }
                 }
             }
         }
 
-        stage('Plan') {
+        stage('plan') {
             steps {
                 script {
-                    withAWS(credentials: 'jenkins-ecr-user', region: "${REGION}") {
+                    withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
                         sh """
-                        set -e
-                        cd 09-frontend-alb
-                        terraform plan -out=tfplan
-                        """
-                    }
-                }
-            }
-        }
-
-        stage('Apply') {
-            steps {
-                lock(resource: 'terraform-frontend-alb') {
-                    script {
-                        withAWS(credentials: 'jenkins-ecr-user', region: "${REGION}") {
-                            sh """
-                            set -e
                             cd 09-frontend-alb
-                            terraform apply -auto-approve tfplan
-                            """
-                        }
+                            terraform plan
+                        """
                     }
                 }
             }
         }
+        stage('apply') {
+            steps {
+                script {
+                    withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
+                        sh """
+                            cd 09-frontend-alb
+                            terraform apply -auto-approve
+                        """
+                    }
+                }
+            }
+        }
+        
     }
 
     post { 
         always { 
-            echo 'Cleaning workspace...'
+            echo 'I will always say Hello again!'
             deleteDir()
         }
         success { 
-            echo '✅ Terraform Apply Success'
+            echo 'Hello Success'
         }
         failure { 
-            echo '❌ Terraform Apply Failed'
+            echo 'Hello Failure'
         }
     }
 }
