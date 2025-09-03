@@ -62,6 +62,47 @@ pipeline {
                 }
             }
         }
+
+        stage("Trigger Bastion ACM ELB EKS") {
+            parallel {
+                stage ("Trigger Bastion") {
+                    steps {
+                        script {
+                            build job: '03-bastion',
+                                  propagate: false,
+                                  wait: false
+                        }
+                    }
+                }
+                stage ("Trigger EKS") {
+                    steps {
+                        script {
+                            build job: '10-eks',
+                                  propagate: false,
+                                  wait: false
+                        }
+                    }
+                }
+                stage ("Trigger ACM") {
+                    steps {
+                        script {
+                            build job: '08-acm',
+                                  propagate: false,
+                                  wait: false
+                        }
+                    }
+                }
+                stage ("Trigger ALB") {
+                    steps {
+                        script {
+                            build job: '09-frontend-alb',
+                                  propagate: false,
+                                  wait: false
+                        }
+                    }
+                }
+            }
+        }
     }
 
     post { 
