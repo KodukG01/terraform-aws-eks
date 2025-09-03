@@ -1,5 +1,5 @@
 pipeline {
-    agent  {
+    agent {
         label 'AGENT-1'
     }
     environment { 
@@ -8,102 +8,57 @@ pipeline {
         ACC_ID = '108717859359'
         PROJECT = 'roboshop'
         COMPONENT = 'catalogue'
-        
     }
     options {
         timeout(time: 30, unit: 'MINUTES') 
         disableConcurrentBuilds()
-        ansiColor('xterm')
     }
-  /*   parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-        text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
-        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
-        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password') 
-    } */
-    // Build
+    
     stages {
-         stage('init') {
+        stage('init') {
             steps {
-                script {
-                    withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
-                        sh """
-                        cd 02-sg
-                        terraform init -reconfigure
-                        """
+                ansiColor('xterm') {
+                    script {
+                        withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
+                            sh """
+                                cd 02-sg
+                                terraform init -reconfigure
+                            """
+                        }
                     }
                 }
             }
         }
+
         stage('Plan') {
             steps {
-                script {
-                    withAWS(credentials : 'jenkins-ecr-user', region: 'us-east-1') {
-                        sh """
-                        cd 02-sg
-                        terraform plan
-                        """
+                ansiColor('xterm') {
+                    script {
+                        withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
+                            sh """
+                                cd 02-sg
+                                terraform plan
+                            """
+                        }
                     }
                 }
             }
         }
 
         stage('Apply') {
-            
             steps {
-                script {
-                    withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
-                        sh """
-                        cd 02-sg
-                        terraform apply -auto-approve
-                        """
+                ansiColor('xterm') {
+                    script {
+                        withAWS(credentials: 'jenkins-ecr-user', region: 'us-east-1') {
+                            sh """
+                                cd 02-sg
+                                terraform apply -auto-approve
+                            """
+                        }
                     }
                 }
             }
         }
-      
-        /* stage('Bastion EKS ACM ALB'){
-          parallel {
-            stage('Trigger Bastion') {
-                steps {
-                    script {
-                        build job: '03-bastion', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-            stage('Trigger EKS') {
-                steps {
-                    script {
-                        build job: '10-eks', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-            stage('Trigger ACM') {
-                steps {
-                    script {
-                        build job: '08-acm', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-            stage('Trigger ALB') {
-                steps {
-                    script {
-                        build job: '09-frontend-alb', 
-                          propagate: false,  // even SG fails VPC will not be effected
-                          wait: false // VPC will not wait for SG pipeline completion
-                    }
-                }
-            }
-          } */
-        }
-        
     }
 
     post { 
@@ -118,3 +73,4 @@ pipeline {
             echo 'Hello Failure'
         }
     }
+}
