@@ -63,7 +63,7 @@ pipeline {
             }
         }
       
-        stage('Bastion EKS ACM ALB'){
+        /* stage('Bastion EKS ACM ALB'){
           parallel {
             stage('Trigger Bastion') {
                 steps {
@@ -101,7 +101,7 @@ pipeline {
                     }
                 }
             }
-          }
+          } */
         }
         
     }
